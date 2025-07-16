@@ -10,13 +10,16 @@
     <div class="row">
         @foreach($categories as $cat)
             @php
-                $imagePath = null;
-                foreach ($cat->subCategories as $subCat) {
-                    if ($subCat->contents->isNotEmpty()) {
-                        $imagePath = $subCat->contents->first()->image_path;
-                        break;
-                    }
-                }
+                // Mengambil semua konten dari setiap subkategori,
+                // lalu mencari konten terbaru yang memiliki gambar.
+                $latestContentWithImage = $cat->subCategories
+                    ->flatMap(fn($subCategory) => $subCategory->contents)
+                    ->whereNotNull('image_path')
+                    ->sortByDesc('created_at')
+                    ->first();
+                
+                // Menggunakan gambar dari konten terbaru, atau null jika tidak ada.
+                $imagePath = $latestContentWithImage->image_path ?? null;
             @endphp
 
             <div class="col-lg-4 col-md-6 mb-4">

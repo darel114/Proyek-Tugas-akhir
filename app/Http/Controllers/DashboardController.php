@@ -19,9 +19,8 @@ class DashboardController extends Controller
 
     public function home()
     {
-        $categories = Category::with(['subCategories.contents' => function ($query) {
-            $query->whereNotNull('image_path')->take(1);
-        }])->get();
+        // Memuat semua kategori beserta subkategori dan konten di dalamnya
+        $categories = Category::with('subCategories.contents')->get();
 
         return view('user.home', compact('categories'));
     }
