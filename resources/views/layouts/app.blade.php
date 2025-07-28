@@ -7,7 +7,6 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <!-- Google Fonts: Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -76,30 +75,33 @@
 </head>
 <body class="d-flex flex-column min-vh-100">
 
-@if (!request()->is('login') && !request()->is('register'))
 <nav class="navbar navbar-expand-lg navbar-dark">
     <div class="container">
-        <a class="navbar-brand" href="/user/dashboard"><i class="fa-solid fa-earth-asia"></i> Info Karo</a>
+        <a class="navbar-brand" href="/"><i class="fa-solid fa-earth-asia"></i> Info Karo</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto align-items-center">
+                {{-- Public links --}}
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('user.dashboard') }}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('user.home') }}">Kategori</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('user.about') }}">About Us</a>
+                </li>
+
                 @auth
                     @if (auth()->user()->role === 'user')
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('user.dashboard') }}">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('user.home') }}">Kategori</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('user.about') }}">About Us</a>
-                        </li>
+                        {{-- User-specific authenticated links --}}
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('user.message') }}">Pesan</a>
                         </li>
                     @endif
+                    {{-- Logout button for all authenticated users --}}
                     <li class="nav-item ms-3">
                         <form method="POST" action="{{ route('logout') }}" class="d-inline">
                             @csrf
@@ -108,6 +110,7 @@
                     </li>
                 @endauth
                 @guest
+                    {{-- Login button for guests --}}
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('login') }}">Login</a>
                     </li>
@@ -116,7 +119,6 @@
         </div>
     </div>
 </nav>
-@endif
 
 <main class="flex-grow-1 container" style="margin-top: 100px; padding-bottom: 60px;">
     @yield('content')
@@ -124,7 +126,6 @@
 
 @yield('scripts')
 
-@if (!request()->is('login') && !request()->is('register'))
 <footer class="footer">
     <div class="container">
         <div class="row">
@@ -170,7 +171,6 @@
         </div>
     </div>
 </footer>
-@endif
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script>
