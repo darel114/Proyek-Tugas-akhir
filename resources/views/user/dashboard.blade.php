@@ -5,7 +5,7 @@
     <div class="container bg-dark bg-opacity-50 p-5 rounded animate__animated animate__fadeInDown">
         <h1 class="display-4 fw-bold mb-3">Selamat Datang<br>Di Info Karo</h1>
         <p class="lead mb-4">Portal Digital yang menyediakan Informasi tentang budaya dan tradisi suku Karo.</p>
-        <a href="{{ route('user.home') }}" class="btn btn-lg btn-info text-white rounded-pill px-5 py-2 fw-semibold shadow animate__animated animate__zoomIn">Explore</a>
+        <a href="{{ route('user.home') }}" class="btn btn-lg btn-info text-white rounded-pill px-5 py-2 fw-semibold shadow animate__animated animate__zoomIn">Jelajahi</a>
     </div>
 </div>
 

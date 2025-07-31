@@ -95,6 +95,11 @@
                 </li>
 
                 @auth
+                    @if (auth()->user()->role === 'admin')
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('admin.dashboard') }}">Kembali ke Admin</a>
+                        </li>
+                    @endif
                     @if (auth()->user()->role === 'user')
                         {{-- User-specific authenticated links --}}
                         <li class="nav-item">

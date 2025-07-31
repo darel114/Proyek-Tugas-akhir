@@ -67,6 +67,9 @@
     <a href="{{ route('admin.konten.index') }}" class="{{ request()->is('admin/konten*') ? 'active' : '' }}">
         <i class="fas fa-file-alt me-2"></i> Konten
     </a>
+    <a href="{{ route('user.dashboard') }}" target="_blank">
+        <i class="fas fa-user me-2"></i> Lihat Dasbor Pengguna
+    </a>
 
     <div class="logout-wrapper">
         <form method="POST" action="{{ route('logout') }}">
