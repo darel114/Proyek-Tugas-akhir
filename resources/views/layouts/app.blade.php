@@ -85,13 +85,13 @@
             <ul class="navbar-nav ms-auto align-items-center">
                 {{-- Public links --}}
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('user.dashboard') }}">Home</a>
+                    <a class="nav-link" href="{{ route('user.dashboard') }}">Beranda</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('user.home') }}">Kategori</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('user.about') }}">About Us</a>
+                    <a class="nav-link" href="{{ route('user.about') }}">Tentang Kami</a>
                 </li>
 
                 @auth

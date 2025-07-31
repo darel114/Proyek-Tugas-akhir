@@ -33,7 +33,7 @@
                     <h5 class="text-info">04. Kuliner Karo</h5>
                     <p>Cicipi masakan khas seperti Tasak Telu dan Pagit-pagit yang sarat akan makna dan tradisi.</p>
                 </div>
-                <a href="{{ route('user.home') }}" class="btn btn-outline-info rounded-pill mt-3 px-4 py-2 fw-semibold">Explore</a>
+                <a href="{{ route('user.home') }}" class="btn btn-outline-info rounded-pill mt-3 px-4 py-2 fw-semibold">Jelajahi</a>
             </div>
         </div>
     </section>
@@ -54,7 +54,7 @@
                             <h5 class="card-title">{{ $item->title }}</h5>
                             <small class="text-muted">{{ $item->subcategory->category->name }} / {{ $item->subcategory->name }}</small>
                             @if($item->slug)
-                                <a href="{{ route('user.konten.detail', $item->slug) }}" class="btn btn-outline-info btn-sm mt-auto rounded-pill">Read More</a>
+                                <a href="{{ route('user.konten.detail', $item->slug) }}" class="btn btn-outline-info btn-sm mt-auto rounded-pill">Baca lebih lanjut</a>
                             @else
                                 <span class="text-muted mt-auto">Slug tidak tersedia</span>
                             @endif

@@ -42,7 +42,7 @@
                     <textarea name="description" rows="10" class="form-control">{{ old('description', $konten->description) }}</textarea>
                 </div>
                 <div class="form-group">
-                    <label for="image">Gambar (Opsional)</label>
+                    <label for="image">Gambar ((< 2MB))</label>
                     <br>
                     @if($konten->image_path)
                         <img src="{{ asset('storage/' . $konten->image_path) }}" alt="Gambar saat ini" class="img-thumbnail mb-2" width="200">
