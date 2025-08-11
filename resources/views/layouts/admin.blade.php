@@ -68,7 +68,7 @@
         <i class="fas fa-file-alt me-2"></i> Konten
     </a>
     <a href="{{ route('user.dashboard') }}" target="_blank">
-        <i class="fas fa-user me-2"></i> Lihat Dasbor Pengguna
+        <i class="fas fa-user me-2"></i> Lihat Website
     </a>
 
     <div class="logout-wrapper">
