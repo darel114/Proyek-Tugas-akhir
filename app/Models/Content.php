@@ -19,7 +19,8 @@ class Content extends Model
         'slug',
         'description',
         'sub_category_id',
-        'image_path', // 
+        'image_path',
+        'admin_id', // 
     ];
 
     /**
@@ -28,5 +29,10 @@ class Content extends Model
     public function subcategory()
     {
         return $this->belongsTo(SubCategory::class, 'sub_category_id');
+    }   
+
+    public function admin()
+    {
+        return $this->belongsTo(User::class, 'admin_id');
     }
 }

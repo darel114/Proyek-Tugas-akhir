@@ -21,7 +21,10 @@
                         <div>
                             <h5 class="card-title">{{ $item->title }}</h5>
                             <p class="text-muted small mb-2">
-                                {{ $item->subcategory->category->name }} / {{ $item->subcategory->name }}
+                                {{ $item->subcategory->category->name ?? '-' }} / {{ $item->subcategory->name ?? '-' }}
+                            </p>
+                            <p class="text-muted small mb-0">
+                                <small>Admin: {{ $item->admin->name ?? 'Tidak diketahui' }}</small>
                             </p>
                         </div>
                         <div class="d-flex justify-content-between">

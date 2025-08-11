@@ -17,7 +17,7 @@ class ContentController extends Controller
      */
     public function index()
     {
-        $contents = Content::with('subcategory.category')->get();
+        $contents = Content::with(['subcategory.category', 'admin'])->get();
         return view('admin.konten.index', compact('contents'));
     }
 
@@ -58,6 +58,7 @@ class ContentController extends Controller
             'description' => $request->description,
             'image_path' => $imagePath,
             'sub_category_id' => $request->sub_category_id,
+            'admin_id'        => auth()->id(), // simpan admin login
         ]);
 
         return redirect()->route('admin.konten.index')->with('success', 'Konten Berhasil Ditambahkan!');
@@ -113,6 +114,7 @@ class ContentController extends Controller
             'description' => $request->description,
             'image_path' => $imagePath,
             'sub_category_id' => $request->sub_category_id,
+            'admin_id'        => auth()->id(), // update admin terakhir
         ]);
 
         return redirect()->route('admin.konten.index')->with('success', 'Konten Berhasil Diupdate!');

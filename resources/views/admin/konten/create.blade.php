@@ -15,6 +15,11 @@
             </ul>
         </div>
     @endif
+    
+    {{-- Info admin yang sedang login --}}
+    <div class="alert alert-info mb-4">
+        <strong>Admin:</strong> {{ Auth::user()->name }}
+    </div>
 
     <div class="card shadow">
         <div class="card-body">

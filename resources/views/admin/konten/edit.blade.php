@@ -16,6 +16,12 @@
         </div>
     @endif
 
+    @if($konten->admin)
+        <div class="alert alert-info my-3">
+            Terakhir diedit oleh: <strong>{{ $konten->admin->name }}</strong>
+        </div>
+    @endif
+
     <div class="card shadow">
         <div class="card-body">
             {{-- Tambahkan enctype="multipart/form-data" di sini --}}
